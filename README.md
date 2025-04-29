@@ -1,107 +1,114 @@
-🧊 ActionFigure 3D Experience
-This project creates a fully immersive 3D scrolling experience using React Three Fiber, GSAP ScrollTrigger, and 3D models in .glb format. The camera smoothly transitions through multiple positions based on scroll progress, animating a floating 3D action figure with realistic lighting and a parallax feel.
+# 🧍‍♂️ NEOVERSINE 3D Action Figure Web Experience
 
-🚀 Features
-🎥 Perspective Camera transitions driven by scroll
+A stunning 3D scrolling experience using **React Three Fiber**, **GSAP ScrollTrigger**, and **GLTF model animations**.
 
-🌆 Environment lighting using @react-three/drei
+![preview](./preview.gif)
 
-🎈 Floating animation for 3D model using <Float />
+---
 
-🌀 Scroll-based animation and transitions powered by GSAP
+## ✨ Features
 
-🧩 Modular React components with full async suspense loading
+- 🌐 Scroll-based 3D animation transitions
+- 🧠 GSAP timeline with camera movement
+- 🧍‍♂️ GLTF 3D model rendered with lighting and float effects
+- 🌇 Realistic environmental lighting (`@react-three/drei`)
+- ⚛️ React + React Three Fiber integration
+- ⚙️ Perspective Camera with smooth transitions
 
-📦 Tech Stack
-React.js
+---
 
-@react-three/fiber – React renderer for three.js
+## 🖼 Preview
+🌐 [Live Demo](https://your-deploy-link.vercel.app)
 
-@react-three/drei – Useful helpers (camera, environment, float, etc.)
 
-GSAP – Animation engine
+## 📦 Installation
 
-GSAP ScrollTrigger – Sync animations to scroll
-
-GLTF Models – 3D asset format
-
-📁 Folder Structure
-bash
-Copy
-Edit
-src/
-├── components/
-│   ├── ActionFigure.jsx       # Main layout and scroll logic
-│   ├── Scene.jsx              # R3F scene setup with lighting, camera, float
-│   ├── Neo.jsx                # Loads the .glb model using useGLTF
-│   └── TextCanvas.jsx         # Renders 3D text
-🛠️ Setup Instructions
-Clone the repo:
-
-bash
-Copy
-Edit
-git clone https://github.com/your-username/3d-action-figure.git
-cd 3d-action-figure
-Install dependencies:
-
-bash
-Copy
-Edit
+```bash
+git clone https://github.com/yourusername/neoversine-action-figure.git
+cd neoversine-action-figure
 npm install
-Run the dev server:
-
-bash
-Copy
-Edit
+```
+## 🚀 Usage
+```bash
 npm run dev
-Ensure your assets are in public/:
+```
+Open http://localhost:3000 in your browser to see the magic.
 
-Place your .glb model at public/2.glb
+## 🧩 Folder Structure
+```bash
+.
+├── public/
+│   └── 2.glb                 # 3D model
+├── src/
+│   ├── components/
+│   │   ├── ActionFigure.jsx  # Main animation component
+│   │   ├── Scene.jsx         # PerspectiveCamera and environment
+│   │   ├── TextCanvas.jsx    # Renders floating text
+│   │   └── Neo.jsx           # GLTF model component
+│   └── App.jsx
+├── README.md
+└── package.json
+```
+## 🛠 Key Concepts
+### 📸PerspectiveCamera
+```jsx
+<PerspectiveCamera
+  ref={cameraRef}
+  fov={45}
+  near={0.1}
+  far={10000}
+  makeDefault
+  position={[3.5, 1, 3.7]}
+/>
+```
+- Simulates human eye perspective.
+- makeDefault makes it the scene's main camera.
 
-Preload any other models if needed
-
-🔍 Key Concepts
-🎥 PerspectiveCamera
-A realistic camera setup mimicking human vision.
-
-jsx
-Copy
-Edit
-<PerspectiveCamera ref={cameraRef} makeDefault position={[3.5, 1, 3.7]} />
-🌆 Environment
-Adds global lighting and reflections.
-
-jsx
-Copy
-Edit
+## 🏨Environment
+```jsx
 <Environment preset="city" />
-🎈 Float
-Applies a soft floating and rotating animation to your model.
+```
+- Adds realistic lighting and shadows.
 
-jsx
-Copy
-Edit
+- preset="city" provides a nice ambient feel.
+
+## Float
+```jsx
 <Float speed={2} rotationIntensity={1}>
   <Neo />
 </Float>
-🔄 Scroll-based Camera Transitions
-Handled with gsap.timeline() and updated in useEffect based on progress.
+```
+- Adds subtle float animation to the model.
+- Makes the 3D figure feel alive.
 
-🧠 Tips
-For better performance, use lazy loading and <Suspense fallback={...}>
+## 📝GSAP ScrollTrigger
+```js
+gsap.timeline({
+  scrollTrigger: {
+    trigger: mainRef.current,
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1,
+    onUpdate: (self) => setProgress(self.progress),
+  }
+})
+.to(sceneRef.current, { x: '-25vw', y: '100vh' })
+// More transitions...
+```
+- Links scroll position to animation timeline.
 
-GLTF models should be optimized before use (e.g. using Blender or gltfpack)
+- Updates camera and model transitions smoothly.
 
-Always dispose of GLTF scenes to free up GPU memory
-
-Use <axesHelper /> or <gridHelper /> for debugging 3D layouts
-
-📌 To Do
-Add mobile responsiveness
-
-Integrate sound/ambient audio
-
-Add directional/point lighting with shadow support
-
-Animate model parts via animationMixer if supported
+## 📦 Dependencies
+```json
+{
+  "@react-three/fiber": "^8.x",
+  "@react-three/drei": "^9.x",
+  "gsap": "^3.x",
+  "three": "^0.153.x",
+  "react": "^18.x"
+}
+```
+## 🎨 Visual Impact
+- These elements together make your GLB model feel immersive, interactive, and visually dynamic.
+-PerspectiveCamera, Environment, and Float make your 3D GLB model more alive, cinematic, and complete.
