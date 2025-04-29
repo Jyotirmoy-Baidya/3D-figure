@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Suspense, useEffect, useRef, useState } from "react";
 import Scene from "./Scene";
-import Scene2 from "./Scene2";
 import TextCanvas from "./TextCanvas";
 import { Stars } from "@react-three/drei";
 
