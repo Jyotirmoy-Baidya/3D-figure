@@ -15,7 +15,7 @@ const App = () => {
         <ActionFigure />
       </div>
       <div className='flex-col hidden max-lg:flex h-screen w-screen items-center bg-[#181818]'>
-        <p className='text-xl text-white absolute top-36'>Please open in desktop view</p>
+        <p className='text-xl text-white absolute top-36'>Please open in desktop.</p>
         <Canvas>
           <Scene2 />
         </Canvas>
