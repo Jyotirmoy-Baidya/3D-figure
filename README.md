@@ -18,7 +18,7 @@ A stunning 3D scrolling experience using **React Three Fiber**, **GSAP ScrollTri
 ---
 
 ## 🖼 Preview
-🌐 [Live Demo](https://your-deploy-link.vercel.app)
+🌐 [Live Demo](https://3-d-figure.vercel.app/)
 
 
 ## 📦 Installation
