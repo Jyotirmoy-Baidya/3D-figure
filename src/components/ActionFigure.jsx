@@ -70,7 +70,6 @@ const ActionFigure = () => {
 
 
                     <div ref={sceneRef} className="z-10 h-[100vh] w-[100vw]">
-
                         <Canvas>
                             <Scene progress={progress} />
                         </Canvas>
